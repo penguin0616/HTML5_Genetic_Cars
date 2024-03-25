@@ -14,7 +14,7 @@ function worldDef(){
     floorseed: "abc",
     maxFloorTiles: 200,
     mutable_floor: false,
-    motorSpeed: 20,
+    motorSpeed: 0,
     box2dfps: box2dfps,
     max_car_health: box2dfps * 10,
     tileDimensions: {

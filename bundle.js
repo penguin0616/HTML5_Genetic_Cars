@@ -1949,6 +1949,11 @@ document.querySelector("#elitesize").addEventListener("change", function(e){
   cw_setEliteSize(elem.options[elem.selectedIndex].value)
 })
 
+document.querySelector("#motorspeed").addEventListener("change", function(e){
+	var elem = e.target
+	cw_setMotorSpeed(elem.options[elem.selectedIndex].value)
+})
+
 function cw_setMutation(mutation) {
   generationConfig.constants.gen_mutation = parseFloat(mutation);
 }
@@ -1972,6 +1977,15 @@ function cw_setGravity(choice) {
 
 function cw_setEliteSize(clones) {
   generationConfig.constants.championLength = parseInt(clones, 10);
+}
+
+function cw_setMotorSpeed(choice) {
+	world_def.motorSpeed = parseInt(choice)
+	var world = currentRunner.scene.world
+	// CHECK SPEED CHANGES
+	if (world.motorSpeed != world_def.motorSpeed) {
+		world.SetMotorSpeed(world_def.gravity);
+	}
 }
 
 cw_init();
